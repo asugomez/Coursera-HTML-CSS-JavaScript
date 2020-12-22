@@ -16,9 +16,74 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
   </head>
+  
 <body>
+  <header>
+    <nav id="header-nav" class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="pull-left visible-md visible-lg"></a>
 
-  <h1>Hello Coursera!</h1>
+          <div class="navbar-brand">
+            <a href="index.html"><h1>Food, LLC</h1></a>
+          </div>
+
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsable-nav" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        <div id="collapsable-nav" class="collapse navbar-collapse">
+           <ul id="nav-list" class="nav navbar-nav navbar-right visible-xs">
+            <li>
+              <a href="#chiken">
+                <br class="hidden-xs"> Chiken</a>
+            </li>
+            <li>
+              <a href="#beef">
+                <br class="hidden-xs"> Beef</a>
+            </li>
+            <li>
+              <a href="#sushi">
+                <br class="hidden-xs"> Sushi</a>
+            </li>
+          </ul><!-- #nav-list -->
+        </div><!-- .collapse .navbar-collapse -->
+  
+      </div><!-- .container -->
+    </nav><!-- #header-nav -->
+  </header>
+
+  <h1 class="text-center">Our Menu</h1>
+
+  <div id="Menu-items" class="text-center" class="row">
+    <div id="col" class="col-xs-12">
+      <div id="section">
+      <h2 id="chiken"> Chiken </h2>
+      <p id="p1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia distinctio aliquid cupiditate perferendis fuga, sit quasi alias vero sunt non, ratione earum dolores nihil! Consequuntur pariatur totam incidunt soluta expedita.</p>
+      <a href="index.html"><p>Back to top</p></a>
+      </div>
+    </div>
+    
+    <div id="col" class="col-xs-12">
+      <div id="section">
+      <h2 id="beef"> Beef </h2>
+      <p id="p2"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro repellat rem recusandae odio laborum unde a eum, corporis corrupti placeat harum impedit illo deserunt fuga perferendis consequatur magnam facere excepturi. </p>
+      <a href="index.html"><p>Back to top</p></a>
+      </div>
+    </div>
+  
+    <div id="col" class="col-xs-12">
+      <div id="section">
+      <h2 id="sushi">Sushi</h2>
+      <p id="p3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, aspernatur rerum aut repellat nemo placeat? Aliquid eos tempora necessitatibus omnis provident consequatur quasi quas, distinctio optio non consectetur. Rerum, in?</p>
+      <a href="index.html"><p>Back to top</p></a>
+      </div>
+    </div>
+  </div>
 
   <!-- jQuery (Bootstrap JS plugins depend on it) -->
   <script src="js/jquery-1.11.3.min.js"></script>

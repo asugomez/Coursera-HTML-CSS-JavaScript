@@ -1,0 +1,78 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+}
+
+body {
+    font-size: 16px;
+    background-color: white;
+    
+}
+
+header{
+    background-color: gray;
+    border-top: 5px solid black;
+    border-bottom: 5px solid black;
+
+}
+
+#header-nav {
+    background-color: gray;
+    border-radius: 0;
+    border: 0;
+    padding: 40px 20px 10px;
+    
+}
+
+.navbar-brand{
+    color: black;
+}
+
+h1 {
+    color: black;
+}
+
+#col{
+    margin-top: 20px;
+    background-color: gray;  
+    
+}
+
+#section{
+    height: 1000px;
+
+}
+
+.navbar-toggle {
+    position: relative;
+    float: right;
+    padding: 10px 10px;
+    margin-top: 30px;
+}
+
+
+.navbar-header button.navbar-toggle, .navbar-header .icon-bar {
+    border: 1px solid black;
+    align-items: center;
+}
+
+.navbar-default .navbar-collapse{
+  border-color: gray;
+}
+.navbar-default .navbar-nav>li>a {
+    color: black;
+    background: white;
+}
+
+.nav>li>a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+#Menu-items{
+    padding: 30px;
+}

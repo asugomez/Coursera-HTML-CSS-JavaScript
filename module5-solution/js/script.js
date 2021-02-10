@@ -1,15 +1,22 @@
+//lecture 59
 $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 
   // Same as document.querySelector("#navbarToggle").addEventListener("blur",...
+  // that's what $ does
+  //when blur happens, it executes this function right here (the function that is after ".blur")
   $("#navbarToggle").blur(function (event) {
     var screenWidth = window.innerWidth;
     if (screenWidth < 768) {
+      //collapse is a function from bootstrap 
       $("#collapsable-nav").collapse('hide');
     }
   });
 });
 
-(function (global) {
+//lecture 60
+//to make a SPA (single page application) --> it is loaded dynamicaly 
+
+(function (global) { //global is the window object
 
 var dc = {};
 
@@ -30,6 +37,7 @@ var insertHtml = function (selector, html) {
 };
 
 // Show loading icon inside element identified by 'selector'.
+//some icon to show the user that the page is loading --> www.ajaxload.info where to find the icon
 var showLoading = function (selector) {
   var html = "<div class='text-center'>";
   html += "<img src='images/ajax-loader.gif'></div>";
@@ -38,6 +46,7 @@ var showLoading = function (selector) {
 
 // Return substitute of '{{propName}}'
 // with propValue in given 'string'
+//see the category-snippet.html
 var insertProperty = function (string, propName, propValue) {
   var propToReplace = "{{" + propName + "}}";
   string = string
@@ -61,6 +70,7 @@ var switchMenuToActive = function () {
 };
 
 // On page load (before images or CSS)
+//we waiting till the dom content is loaded, and we start executing things
 document.addEventListener("DOMContentLoaded", function (event) {
 
 // TODO: STEP 0: Look over the code from
@@ -80,14 +90,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 // *** start ***
 // On first load, show home view
-showLoading("#main-content");
+showLoading("#main-content");  // the icon from ajax info to show that is loading
 $ajaxUtils.sendGetRequest(
   allCategoriesUrl,
-  [...], // ***** <---- TODO: STEP 1: Substitute [...] ******
+  // ***** ---- TODO: STEP 1: Substitute [...] ******
+  buildAndShowHomeHTML,
   true); // Explicitly setting the flag to get JSON from server processed into an object literal
 });
 // *** finish **
-
 
 // Builds HTML for the home page based on categories array
 // returned from the server.
@@ -96,13 +106,12 @@ function buildAndShowHomeHTML (categories) {
   // Load home snippet page
   $ajaxUtils.sendGetRequest(
     homeHtmlUrl,
-    function (homeHtml) {
-
+    function (homeHtmlUrl) {
+ 
       // TODO: STEP 2: Here, call chooseRandomCategory, passing it retrieved 'categories'
       // Pay attention to what type of data that function returns vs what the chosenCategoryShortName
       // variable's name implies it expects.
-      // var chosenCategoryShortName = ....
-
+      var chosenCategoryShortName = chooseRandomCategory(categories).short_name;
 
       // TODO: STEP 3: Substitute {{randomCategoryShortName}} in the home html snippet with the
       // chosen category from STEP 2. Use existing insertProperty function for that purpose.
@@ -114,15 +123,17 @@ function buildAndShowHomeHTML (categories) {
       // $dc.loadMenuItems('L')
       // Hint: you need to surround the chosen category short name with something before inserting
       // it into the home html snippet.
-      //
-      // var homeHtmlToInsertIntoMainPage = ....
+      
+      var homeHtmlToInsertIntoMainPage = insertProperty(homeHtmlUrl,
+                                                        "randomCategoryShortName",
+                                                         "'"+chosenCategoryShortName+"'");
 
 
       // TODO: STEP 4: Insert the the produced HTML in STEP 3 into the main page
       // Use the existing insertHtml function for that purpose. Look through this code for an example
       // of how to do that.
       // ....
-
+      insertHtml("#main-content", homeHtmlToInsertIntoMainPage);
     },
     false); // False here because we are getting just regular HTML from the server, so no need to process JSON.
 }
@@ -337,7 +348,6 @@ function insertItemPortionName(html,
   return html;
 }
 
-
-global.$dc = dc;
+global.$dc = dc; //we expose dc to the global object for we can use it globally 
 
 })(window);
